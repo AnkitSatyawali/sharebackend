@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
+const subeventRouter =  require('./routes/subevents');
 const app = express();
 // database setup
 mongoose.set('useCreateIndex', true);
@@ -30,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
-
+app.use('/subevents',subeventRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

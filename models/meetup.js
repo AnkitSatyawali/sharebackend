@@ -46,6 +46,28 @@ const MeetupSchema = new Schema({
          name :{type:String,ref:'User',required:true}
        }
     ]
+  },
+    subevents:{
+        event : [{
+            title: {type:String,default:"Not provided"},
+        date : {type:String,default:"Not provided"},
+        week : {type:String,default:"Not provided"},
+        venue : {type:String,default:"Not provided"},
+        message : {type:String}
+        }]
+    },
+    story:{
+    type:String
+  },
+  information:{
+    type:String
+  },
+  images: {
+    imageurl:[
+    {
+      type:String
+    }
+    ]
   }
 });
 

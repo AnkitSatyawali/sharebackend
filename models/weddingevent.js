@@ -59,6 +59,33 @@ const WeddingSchema = new Schema({
          name :{type:String,ref:'User',required:true}
        }
     ]
+  },
+  subevents:{
+    events:[
+      {
+        title: {type:String,default:"Not provided"},
+        date : {type:String,default:"Not provided"},
+        week : {type:String,default:"Not provided"},
+        venue : {type:String,default:"Not provided"},
+        message : {type:String}
+      }
+    ]
+  },
+  story1:{
+    type:String
+  },
+  story2:{
+    type:String
+  },
+  information:{
+    type:String
+  },
+  images: {
+    imageurl:[
+    {
+      type:String
+    }
+    ]
   }
 });
 

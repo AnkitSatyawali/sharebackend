@@ -25,6 +25,8 @@ const upload = multer({storage:storage,fileFilter:fileFilter});
 router.get('/', userController.index);
 // CREATE A NEW USER
 router.post('/', userController.create);
+router.post('/gmail/signin',userController.createg);
+router.get('/gettly/:id',userController.getu);
 // AUTHENTICATE USER
 router.post('/signin', userController.authenticateUser);
 // FIND USER BY ID

@@ -1,4 +1,5 @@
 const User = require('../models/users').User;
+const Gmail = require('../models/duser').Gmail;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secret = require('../config').secret;
@@ -45,6 +46,41 @@ const uploadImage = async(req,res) => {
     })
   }
 };
+const createg = async(req,res) =>{
+  let {username,photoUrl,email,id} = req.body;
+  console.log(req.body);
+  try {
+    let gmail = new Gmail({
+        username:username,
+        photourl : photoUrl,
+        email:email,
+        id:id
+    });
+    await gmail.save();
+    res.status(200).json({
+      id: gmail._id,
+      name: gmail.username,
+      email: gmail.email
+    })
+  }catch (error) {
+    console.log(error);
+    res.status(500).json({
+      error: true,
+      message: 'Could not create user...Please try again some time later'
+    })
+  }
+}
+const getu = async(req,res) =>{
+   try {
+     let us = await Gmail.findOne({_id:req.params.id});
+     res.status(200).json(us);
+   }catch (error) {
+        res.status(500).json({
+            error: true,
+            message: 'Something went wrong...Please try again later.'
+        })
+    }
+}
 const create = async (req, res) => {
   let { emailid,phoneno,password,username} = req.body;
   console.log(req.body);
@@ -148,5 +184,7 @@ module.exports = {
   findUser,
   authenticateUser,
   invites,
-  uploadImage
+  uploadImage,
+  createg,
+  getu
 };
