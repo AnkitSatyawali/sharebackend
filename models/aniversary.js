@@ -44,9 +44,9 @@ const AniversarySchema = new Schema({
     required:true
   },
   createdBy : {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: 'User'
+    type: String,
+    required: true
+    
   },
   address : {
     type:String,

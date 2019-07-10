@@ -244,6 +244,7 @@ const createWedding = async (req,res,next) => {
             text3,
             text4
            } = req.body;
+     console.log(req.body);
     try {
             const event = new wedding({
             name:text,

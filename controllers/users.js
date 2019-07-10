@@ -56,12 +56,26 @@ const createg = async(req,res) =>{
         email:email,
         id:id
     });
+    let muser = await Gmail.findOne({email:gmail.email});
+      console.log(muser);
+    if(muser)
+    {
+      const token = jwt.sign({
+        name: muser.username,
+        id: muser._id,
+        email: muser.email
+      }, secret);
+       console.log(token);
+      res.status(200).json(muser);
+      
+    }
+    else{
     await gmail.save();
     res.status(200).json({
       id: gmail._id,
       name: gmail.username,
       email: gmail.email
-    })
+    })}
   }catch (error) {
     console.log(error);
     res.status(500).json({

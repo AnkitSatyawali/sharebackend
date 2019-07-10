@@ -11,7 +11,7 @@ const subeventRouter =  require('./routes/subevents');
 const app = express();
 // database setup
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb+srv://sharejoy:fvPRubLxvULSryUd@cluster0-t9kzf.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://ankitsat:bW6ZwEvaMCVLkgcg@cluster0-rpwcy.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true
 }).then(() => {
 	console.log('Connected to database');

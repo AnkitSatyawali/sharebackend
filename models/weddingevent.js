@@ -44,9 +44,9 @@ const WeddingSchema = new Schema({
     required:true
   },
   createdBy: {
-    type: Schema.Types.ObjectId,
+    type: String,
     required: true,
-    ref: 'User'
+   
   },
   address :{
     type:String,
