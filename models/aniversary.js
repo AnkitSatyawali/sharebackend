@@ -80,13 +80,8 @@ const AniversarySchema = new Schema({
   information:{
     type:String
   },
-  images: {
-    imageurl:[
-    {
-      type:String
-    }
-    ]
-  }
+  images:[{type:String}]
+  
 
 });
 
